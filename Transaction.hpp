@@ -1,4 +1,3 @@
-#ifndef _TRANSACTION_HPP_
 #define _TRANSACTION_HPP_
 
 #include <iomanip>
@@ -74,4 +73,3 @@ class Transaction {
     static unsigned int assigned_trans_id;
 
 };
-#endif 

@@ -9,12 +9,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Definitions for Transaction class
 ////////////////////////////////////////////////////////////////////////////////
-//
-//
 
 // Constructor
-// TASK 1
-//
 Transaction::Transaction( std::string ticker_symbol,  unsigned int day_date,  
         unsigned int month_date,  unsigned year_date, 
         bool buy_sell_trans,  unsigned int number_shares,  
@@ -42,8 +38,6 @@ Transaction::Transaction( std::string ticker_symbol,  unsigned int day_date,
         }
 
 // Destructor
-// TASK 1
-//
   Transaction::~Transaction()
   {
       symbol = "\0";
@@ -58,8 +52,6 @@ Transaction::Transaction( std::string ticker_symbol,  unsigned int day_date,
   }
 
 // Overloaded < operator.
-// TASK 2
-//
  bool Transaction::operator<( Transaction const &other ) {
     if (get_year() < other.get_year()) {
       return true;
@@ -80,9 +72,7 @@ Transaction::Transaction( std::string ticker_symbol,  unsigned int day_date,
     }
  }
 
-// GIVEN
 // Member functions to get values.
-//
 std::string Transaction::get_symbol() const { return symbol; }
 unsigned int Transaction::get_day() const { return day; }
 unsigned int Transaction::get_month() const { return month; }
@@ -97,18 +87,14 @@ bool Transaction::get_trans_type() const { return (trans_type == "Buy") ? true: 
 unsigned int Transaction::get_trans_id() const { return trans_id; }
 Transaction *Transaction::get_next() { return p_next; }
 
-// GIVEN
 // Member functions to set values.
-//
 void Transaction::set_acb( double acb_value ) { acb = acb_value; }
 void Transaction::set_acb_per_share( double acb_share_value ) { acb_per_share = acb_share_value; }
 void Transaction::set_share_balance( unsigned int bal ) { share_balance = bal ; }
 void Transaction::set_cgl( double value ) { cgl = value; }
 void Transaction::set_next( Transaction *p_new_next ) { p_next = p_new_next; }
 
-// GIVEN
 // Print the transaction.
-//
 void Transaction::print() {
   std::cout << std::fixed << std::setprecision(2);
   std::cout << std::setw(4) << get_trans_id() << " "
@@ -134,21 +120,14 @@ void Transaction::print() {
 ////////////////////////////////////////////////////////////////////////////////
 // Definitions for the History class
 ////////////////////////////////////////////////////////////////////////////////
-//
-//
-
 
 // Constructor
-// TASK 3
-//
 History::History():
   p_head{nullptr}
 {
 }
 
 // Destructor
-// TASK 3
-//
 History::~History() {
   Transaction *current{p_head};
   while (current != nullptr) {
@@ -159,8 +138,6 @@ History::~History() {
 }
 
 // read_history(...): Read the transaction history from file.
-// TASK 4
-//
 void History::read_history() {
 
   ece150::open_file();
@@ -176,8 +153,6 @@ void History::read_history() {
 }
 
 // insert(...): Insert transaction into linked list.
-// TASK 5
-//
 void History::insert(Transaction *p_new_trans) {
 
   if (p_head == nullptr) {
@@ -194,8 +169,6 @@ void History::insert(Transaction *p_new_trans) {
 }
 
 // sort_by_date(): Sort the linked list by trade date.
-// TASK 6
-//
 void History::sort_by_date() {
 
   Transaction *current{p_head};
@@ -234,9 +207,8 @@ void History::sort_by_date() {
   return;
  
 }
+
 // update_acb_cgl(): Updates the ACB and CGL values.
-// TASK 7
-//
 void History::update_acb_cgl() {
   Transaction *current{p_head};
 //for head
@@ -263,10 +235,7 @@ void History::update_acb_cgl() {
   return;
 }
 
-
 // compute_cgl(): )Compute the ACB, and CGL.
-// TASK 8
-
 double History::compute_cgl(unsigned int year) {
 
   Transaction *current{p_head};
@@ -282,10 +251,7 @@ double History::compute_cgl(unsigned int year) {
   return total;
 }
 
-
 // print() Print the transaction history.
-//TASK 9
-//
 void History::print() {
 
   Transaction *current{p_head};
@@ -299,8 +265,5 @@ void History::print() {
   return;
 }
 
-
-// GIVEN
 // get_p_head(): Full access to the linked list.
-//
 Transaction *History::get_p_head() { return p_head; }

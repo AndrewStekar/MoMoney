@@ -1,4 +1,3 @@
-#ifndef _HISTORY_HPP_
 #define _HISTORY_HPP_
 
 #include <iomanip>
@@ -46,5 +45,3 @@ public:
 private:
 	Transaction *p_head;
 };
-
-#endif

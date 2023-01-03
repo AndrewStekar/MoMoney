@@ -1,4 +1,3 @@
-#ifndef _PROJECT4_HPP_
 #define _PROJECT4_HPP_
 ////////////////////////////////////
 // ECE 150: Project 4
@@ -64,4 +63,3 @@ bool get_trans_type();
 
 };  // namespace ece150
 
-#endif

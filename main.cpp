@@ -5,8 +5,6 @@
 #include "History_Transaction_definitions.cpp"
 #include "project4.cpp"
 
-
-#ifndef MARMOSET_TESTING
 unsigned int Transaction::assigned_trans_id = 0;
 int main() {
 
@@ -27,4 +25,3 @@ int main() {
 
   return 0;
 }
-#endif

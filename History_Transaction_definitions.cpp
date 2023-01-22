@@ -1,3 +1,6 @@
+// Andrew Stekar
+// Dec 2, 2022
+
 #include <cassert>
 #include <iomanip>
 #include <iostream>
@@ -211,7 +214,7 @@ void History::sort_by_date() {
 // update_acb_cgl(): Updates the ACB and CGL values.
 void History::update_acb_cgl() {
   Transaction *current{p_head};
-//for head
+// for head of linked list
       current->set_acb(current->get_amount());
       current->set_share_balance(current->get_shares());
       current->set_acb_per_share((current->get_acb())/(current->get_share_balance()));
